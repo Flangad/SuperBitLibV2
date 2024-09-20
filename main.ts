@@ -279,6 +279,20 @@ namespace SuperBitV2 {
         setPwm(num, 0, pwm);
 
     }
+	
+    //% blockId=SuperBitV2_Servo block="Servo(180°)|num %num|value %value"
+    //% weight=97
+    //% blockGap=10
+    //% num.min=1 num.max=4 value.min=0 value.max=360
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=20
+    export function Servo5(num: enServo, value: number): void {
+
+        // 50hz: 20,000 us
+        let us = (value * 2000 / 360 + 500); // 0.6 ~ 2.4
+        let pwm = us * 4096 / 20000;
+        setPwm(num, 0, pwm);
+
+    }
 
     //% blockId=SuperBitV2_Servo3 block="Servo(360°)|num %num|pos %pos|value %value"
     //% weight=96
